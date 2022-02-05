@@ -320,7 +320,7 @@ void draw_detections_v3(image im, detection *dets, int num, float thresh, char *
     for (i = 0; i < selected_detections_num; ++i) {
         const int best_class = selected_detections[i].best_class;
         printf("%s: %.0f%%", names[best_class], selected_detections[i].det.prob[best_class] * 100);
-        if (ext_output) {
+        if (ext_output) 
             printf("\t(left_x: %4.0f   top_y: %4.0f   width: %4.0f   height: %4.0f)\n",
                 round((selected_detections[i].det.bbox.x - selected_detections[i].det.bbox.w / 2)*im.w),
                 round((selected_detections[i].det.bbox.y - selected_detections[i].det.bbox.h / 2)*im.h),
