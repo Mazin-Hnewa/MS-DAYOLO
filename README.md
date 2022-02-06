@@ -5,10 +5,11 @@ This is offical implementation of [Multiscale Domain Adaptive YOLO (MS-DAYOLO) f
 Please follow the instruction in [AlexeyAB/darknet](https://github.com/AlexeyAB/darknet) to install the requirments to compile Darkent and use YOLOv4 object detector. 
 
 ## Example Usage
-An example of adapting from Kitti dataset to Cityscapes dataset is provided:
+Please follow these steps to adpate from Kitti dataset to Cityscapes dataset using MS-DAYOLO:
 
-1- run `make` to compile darknet
-2-
+1- Run `make` to compile darknet
+
+2- Download the pre-trained weights-file: yolov4.conv.137
 
 
 
