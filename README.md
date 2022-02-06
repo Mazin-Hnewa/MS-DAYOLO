@@ -15,10 +15,10 @@ Please follow these steps to adpate from KITTI dataset to Cityscapes dataset usi
 
 4- Extract the file in data folder.
 
-5- Start the traning by running this comment:
-
-`./darknet detector train data/k2c.data cfg/ms-dayolo.cfg yolov4.conv.137 -dont_show -map -da`
-
+5- Train MS-DAYOLO by running this comment:
+```
+./darknet detector train data/k2c.data cfg/ms-dayolo.cfg yolov4.conv.137 -dont_show -map -da`
+```
 
 
 
