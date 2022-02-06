@@ -7,17 +7,14 @@ Please follow the instruction in [AlexeyAB/darknet](https://github.com/AlexeyAB/
 ## Example Usage
 Please follow these steps to adpate from KITTI dataset to Cityscapes dataset using MS-DAYOLO:
 
-1- Run `make` to compile Darknet with MS-DAYOLO.
+1. Run `make` to compile Darknet with MS-DAYOLO.
+2. Download the pre-trained weights-file: [yolov4.conv.137](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137).
+3. Download the required data file which has source set with annotation, target set (with dummy annotation), and test target set with annotation.
+4. Extract the file in data folder.
 
-2- Download the pre-trained weights-file: [yolov4.conv.137](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137).
-
-3- Download the required data file which has source set with annotation, target set (with dummy annotation), and test target set with annotation.
-
-4- Extract the file in data folder.
-
-5- Train MS-DAYOLO by running this comment:
+5. Train MS-DAYOLO by running this comment:
 ```
-./darknet detector train data/k2c.data cfg/ms-dayolo.cfg yolov4.conv.137 -dont_show -map -da`
+./darknet detector train data/k2c.data cfg/ms-dayolo.cfg yolov4.conv.137 -dont_show -map -da
 ```
 
 
