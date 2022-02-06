@@ -49,12 +49,6 @@ activate_array(l.output, size, LOGISTIC);
 #endif
 int i,q=0;
 float x,loss=0,w=0;
-//float so=0,ta=0;
-//for (i=0;i<size/2;++i)  printf("%.2f  %d   %.2f \n",l.output[i],l.d_truth[i],l.output[i]-l.d_truth[i]);
-//if(l.output[i]>0.5) so++;
-  //for (i=size/2;i<size;++i) printf("%.2f  %d   %.2f \n",l.output[i],l.d_truth[i],l.output[i]-l.d_truth[i]);
-//   if (l.output[i]<0.5) ta++;
-// printf("\nright source = %f    right target=%f\n",so*2/size,ta*2/size);
 
 for (i = 0; i < size; ++i)
 {  //x=(l.d_truth[i]*log(l.output[i]))+((1-l.d_truth[i])*log(1-l.output[i]));
@@ -63,15 +57,11 @@ for (i = 0; i < size; ++i)
   else printf("error error error error error  \n");
   if (x>-100.0){loss+=-x; q+=1;}
   else w+=1;
-  //l.delta[i]=(l.output[i]-l.d_truth[i])/size;
   l.delta[i]=(l.d_truth[i]-l.output[i])/size;
 }
 if (q>0) loss/=q;
 l.da_loss[0]=loss;
 l.da_loss[1]=w/size;
-//printf("----------------- end mini batch -----------------------\n");
-//printf("\n**************************  dmoain classifier loss = %f   ********************* \n", loss);
-
 }
 
 void backward_dc_layer(const layer l, network_state state)
