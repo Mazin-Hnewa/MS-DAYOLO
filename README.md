@@ -33,7 +33,7 @@ and evaluate the trained YOLOv4:
 
 ## Results & Pretrained Weights
 Adaptation from KITTI to Cityscapes
-|    | Car AP|Pretrained Weights|
+|Method| Car AP|Pretrained Weights|
 |---|---|---|
 |YOLOv4|42.85|[download](https://drive.google.com/file/d/1rzOKQM5l4xk7E40IbwzZ-Nv6TAjLZFF9/view?usp=sharing)|
 |MS-DAYOLO|47.71|[download](https://drive.google.com/file/d/1SlMPSnmL42CKllA7CBaz7cgqBbAhfE-e/view?usp=sharing)|
