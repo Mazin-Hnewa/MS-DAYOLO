@@ -32,6 +32,10 @@ and evaluate the trained YOLOv4:
 ```
 
 ## Results & Pretrained Weights
+|    | Car AP|Pretrained Weights|
+|---|---|---|
+|YOLOv4|42.86|weights|
+|MS-DAYOLO|47.71|weights|
 
 
 ## Citation
