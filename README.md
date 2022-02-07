@@ -11,21 +11,25 @@ Please follow these steps to adpate from KITTI dataset to Cityscapes dataset usi
 2. Download the pre-trained weights-file: [yolov4.conv.137](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137).
 3. Download the required data file [Kitti2Cityscapes.zip](https://drive.google.com/file/d/1HQmSt-8oDU4eSbOv2Gs-OC2JHQE5EMsI/view?usp=sharing) which has source set with annotation, target set (with dummy annotation), and test target set with annotation.
 4. Extract the file in data folder.
-5. Train MS-DAYOLO by running the following comment:
+5. Train MS-DAYOLO:
 ```
 ./darknet detector train data/k2c.data cfg/ms-dayolo.cfg yolov4.conv.137 -dont_show -map -da
 ```
 During training, the best weight will be saved in backup folder.
 
 6. If the best weight file does not be updated for long time, stop the traning.
-7. After training is finished, test MS-DAYOLO by running following comment:
+7. After training is finished, evaluate the trained MS-DAYOLO:
 ```
 ./darknet detector map data/k2c.data cfg/ms-dayolo.cfg backup/ms-dayolo_best.weights
 ```
-8. For comparison with orginal YOLOv4, train YOLOv4 by by running following comment:
+8. For comparison with orginal YOLOv4, train YOLOv4:
 ```
 ./darknet detector train data/k2c.data cfg/yolov4.cfg yolov4.conv.137 -dont_show -map
-```    
+```
+and evaluate the trained YOLOv4:
+```
+./darknet detector map data/k2c.data cfg/yolov4.cfg backup/yolov4_best.weights
+```
 
 ## Results & Pretrained Weights
 
