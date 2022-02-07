@@ -18,10 +18,14 @@ Please follow these steps to adpate from KITTI dataset to Cityscapes dataset usi
 During training, the best weight will be saved in backup folder.
 
 6. If the best weight file does not be updated for long time, stop the traning.
-7. After training is finised, test MS-DAYOLO by running following comment:
+7. After training is finished, test MS-DAYOLO by running following comment:
 ```
 ./darknet detector map data/k2c.data cfg/ms-dayolo.cfg backup/ms-dayolo_best.weights
 ```
+8. For comparison with orginal YOLOv4, train YOLOv4 by by running following comment:
+```
+./darknet detector train data/k2c.data cfg/yolov4.cfg yolov4.conv.137 -dont_show -map
+```    
 
 
 
