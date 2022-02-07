@@ -483,60 +483,16 @@ float da_train_network_waitkey(network net, data d, data d_t, int wait_key)
         //   if (see.delta[k]<see_min) see_min=see.delta[k];
         // }
 
-        for (j = 0; j < net.no_dc; ++j)
-        {da_loss+= net.layers[net.dc[j]].da_loss[0];
-          nan+= net.layers[net.dc[j]].da_loss[1];}
+        for (j = 0; j < net.no_dc; ++j) da_loss+= net.layers[net.dc[j]].da_loss[0];
 
         if(wait_key) wait_key_cv(5);
     }
-    //   FILE *out_fd = fopen("da_loss.txt", "a");
-    //  fprintf(out_fd, "%f  %f\n", da_loss/(n*net.no_dc),nan/(n*net.no_dc));
-    // // // fprintf(out_fd, "%f\n", da_loss/(n*net.no_dc));
-    //  fclose(out_fd);
 
     printf("***********************************\n");
-    printf("  dmoain classifier loss = %f     nan percent =%f   \n",  da_loss/(n*net.no_dc),nan/(n*net.no_dc));
-    // printf("  dmoain classifier loss = %f\n",  da_loss/(n*net.no_dc));
-    // if (nan>0) printf("these are nan dc loss: %f \n ",nan/(n*net.no_dc));
+    printf("  dmoain classifier loss = %f \n",  da_loss/(n*net.no_dc));
     printf("***********************************");
-    // printf("  Layer: %d delta_sum = %f   max=%f     min=%f     k=%d     batch=%d\n",lay, see_sum,see_max,see_min,k,see.batch);
-    //   printf("***********************************");
-    (*net.cur_iteration) += 1;
 
-    // float da_loss0 = 0, da_loss1 = 0,da_loss2 = 0, nan0=0, nan1=0, nan2=0;
-    // for(i = 0; i < n; ++i){
-    //     get_next_batch(d, batch/2, i*batch/2, X, y);
-    //     get_next_batch_target(d_t, batch/2, i*batch/2, X+batch*d.X.cols/2);
-    //
-    //     net.current_subdivision = i;
-    //     float err = train_network_datum(net, X, y);
-    //     sum += err;
-    //     da_loss0+= net.layers[net.dc[0]].da_loss[0];
-    //     nan0+= net.layers[net.dc[0]].da_loss[1];
-    //     da_loss1+= net.layers[net.dc[1]].da_loss[0];
-    //     nan1+= net.layers[net.dc[1]].da_loss[1];
-    //     da_loss2+= net.layers[net.dc[2]].da_loss[0];
-    //     nan2+= net.layers[net.dc[2]].da_loss[1];
-    //     if(wait_key) wait_key_cv(5);
-    // }
-    // FILE *out_fd1 = fopen("domain_loss1.txt", "a");
-    // fprintf(out_fd1, "%f\n", da_loss0/n);
-    // fclose(out_fd1);
-    //
-    // FILE *out_fd2 = fopen("domain_loss2.txt", "a");
-    // fprintf(out_fd2, "%f\n", da_loss1/n);
-    // fclose(out_fd2);
-    //
-    // FILE *out_fd3 = fopen("domain_loss3.txt", "a");
-    // fprintf(out_fd3, "%f\n", da_loss2/n);
-    // fclose(out_fd3);
-    //
-    // //fprintf(out_fd, "%d: domain_loss= %f\n", *net.cur_iteration, da_loss/(n*net.no_dc));;
-    // printf("***********************************\n");
-    // printf("  dc 1 = %f    dc 2 = %f     dc 3 = %f \n", da_loss0/n, da_loss1/n, da_loss2/n );
-    // if (nan>0) printf(" nan1: %f   nan2: %f   nan3: %f\n ",nan0,nan1,nan2);
-    // printf("***********************************");
-    // (*net.cur_iteration) += 1;
+    (*net.cur_iteration) += 1;
 
 #ifdef GPU
     update_network_gpu(net);
