@@ -10,9 +10,9 @@ Please follow these steps to adapt from Cityscapes to Foggy Cityscapes:
 1. Run `make` to compile Darknet with MS-DAYOLO.
 2. Download the pre-trained weights-file: [yolov4.conv.137](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137).
 3. Download the required data file [Cityscaples2Foggy.zip](https://drive.google.com/file/d/1NqXY9iXXQOCPvbYpS9l8Yk66-nGzlMwQ/view?usp=sharing) which has:
-- source set with annotation
+- source set with  ground-truth annotation
 - target set (with dummy annotation)
-- test target set with annotation.
+- test target set with ground-truth annotation.
 5. Extract the file in `data/` folder.
 6. Train MS-DAYOLO:
 ```
@@ -35,7 +35,7 @@ and evaluate the trained YOLOv4:
 ```
 
 ## Results & Pretrained Weights
-Adaptation Cityscapes to Foggy Cityscapes
+Adaptation from Cityscapes to Foggy Cityscapes
 |Method| mAP|Pretrained Weights|
 |---|---|---|
 |YOLOv4|35.64|[download](https://drive.google.com/file/d/18__pgkEWbLAmTE1veYpgn6YG6NmU1P7u/view?usp=sharing)|
