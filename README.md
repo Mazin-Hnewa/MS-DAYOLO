@@ -25,7 +25,7 @@ During training, the best weight will be saved in `backup/` folder.
 ```
 ./darknet detector map data/c2f.data cfg/ms-dayolo.cfg backup/ms-dayolo_best.weights
 ```
-8. For comparison with the original YOLOv4, train YOLOv4:
+8. For comparison with the original YOLOv4, train it:
 ```
 ./darknet detector train data/c2f.data cfg/yolov4.cfg yolov4.conv.137 -dont_show -map
 ```
