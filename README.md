@@ -5,38 +5,41 @@ This is the official implementation of [Multiscale Domain Adaptive YOLO (MS-DAYO
 Please follow the instruction in [AlexeyAB/darknet](https://github.com/AlexeyAB/darknet) to install the requirements to compile Darkent and use YOLOv4 object detector. 
 
 ## Example Usage
-Please follow these steps to adapt from KITTI dataset to Cityscapes dataset using MS-DAYOLO:
+Please follow these steps to adapt from Cityscapes to Foggy Cityscapes:
 
 1. Run `make` to compile Darknet with MS-DAYOLO.
 2. Download the pre-trained weights-file: [yolov4.conv.137](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137).
-3. Download the required data file [Kitti2Cityscapes.zip](https://drive.google.com/file/d/1HQmSt-8oDU4eSbOv2Gs-OC2JHQE5EMsI/view?usp=sharing) which has source set with annotation, target set (with dummy annotation), and test target set with annotation.
-4. Extract the file in `data/` folder.
-5. Train MS-DAYOLO:
+3. Download the required data file [Cityscaples2Foggy.zip](https://drive.google.com/file/d/1NqXY9iXXQOCPvbYpS9l8Yk66-nGzlMwQ/view?usp=sharing) which has:
+- source set with annotation
+- target set (with dummy annotation)
+- test target set with annotation.
+5. Extract the file in `data/` folder.
+6. Train MS-DAYOLO:
 ```
-./darknet detector train data/k2c.data cfg/ms-dayolo.cfg yolov4.conv.137 -dont_show -map -da
+./darknet detector train data/c2f.data cfg/ms-dayolo.cfg yolov4.conv.137 -dont_show -map -da
 ```
 During training, the best weight will be saved in `backup/` folder.
 
 6. If the best weight file does not be updated for a long time, stop the training.
 7. After training is finished, evaluate the trained MS-DAYOLO:
 ```
-./darknet detector map data/k2c.data cfg/ms-dayolo.cfg backup/ms-dayolo_best.weights
+./darknet detector map data/c2f.data cfg/ms-dayolo.cfg backup/ms-dayolo_best.weights
 ```
 8. For comparison with the original YOLOv4, train YOLOv4:
 ```
-./darknet detector train data/k2c.data cfg/yolov4.cfg yolov4.conv.137 -dont_show -map
+./darknet detector train data/c2f.data cfg/yolov4.cfg yolov4.conv.137 -dont_show -map
 ```
 and evaluate the trained YOLOv4:
 ```
-./darknet detector map data/k2c.data cfg/yolov4.cfg backup/yolov4_best.weights
+./darknet detector map data/c2f.data cfg/yolov4.cfg backup/yolov4_best.weights
 ```
 
 ## Results & Pretrained Weights
-Adaptation from KITTI to Cityscapes
-|Method| Car AP|Pretrained Weights|
+Adaptation Cityscapes to Foggy Cityscapes
+|Method| mAP|Pretrained Weights|
 |---|---|---|
-|YOLOv4|42.85|[download](https://drive.google.com/file/d/1rzOKQM5l4xk7E40IbwzZ-Nv6TAjLZFF9/view?usp=sharing)|
-|MS-DAYOLO|47.71|[download](https://drive.google.com/file/d/1SlMPSnmL42CKllA7CBaz7cgqBbAhfE-e/view?usp=sharing)|
+|YOLOv4|35.64|[download](https://drive.google.com/file/d/18__pgkEWbLAmTE1veYpgn6YG6NmU1P7u/view?usp=sharing)|
+|MS-DAYOLO|43.04|[download](https://drive.google.com/file/d/1oTnIRw9kZOTcqJyhK0O3rwD0GZfGRPsP/view?usp=sharing)|
 
 
 ## Citation
